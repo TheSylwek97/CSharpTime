@@ -18,13 +18,13 @@ namespace ProjectStructs
         /// </summary>
         public int CompareTo(TimePeriod other)
         {
-            if (this.hours == other.hours)
+            if (this.Hours == other.Hours)
                 if (this.mins == other.mins)
                     return this.secs.CompareTo(other.secs);
                 else
                     return this.mins.CompareTo(other.mins);
 
-            return other.hours.CompareTo(this.hours);
+            return other.Hours.CompareTo(this.Hours);
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace ProjectStructs
 
             if (this.GetType() != t.GetType()) { return false; }
 
-            return (hours == t.hours) && (mins == t.mins) && (secs == t.secs);
+            return (Hours == t.Hours) && (mins == t.mins) && (secs == t.secs);
         }
 
         /// <summary>
@@ -56,26 +56,26 @@ namespace ProjectStructs
         /// </summary>
         public override int GetHashCode()
         {
-            return hours * 0x00010000 + hours;
+            return Hours * 0x00010000 + Hours;
         }
         private readonly long numberSecs;
 
-        byte hours
+        public byte Hours
         {
             get { return (byte)(numberSecs / 3600); }
-            set
+            private set
             {
-                if (hours >= 0 && hours <= 23)
-                    hours = value;
+                if (Hours >= 0 && Hours <= 23)
+                    Hours = value;
                 else
                     throw new ArgumentException("Niepoprawna liczba");
             }
         }
 
-        byte mins
+        public byte mins
         {
             get { return (byte)((numberSecs / 60) % 60); }
-            set
+            private set
             {
                 if (mins >= 0 && mins <= 59)
                     mins = value;
@@ -84,10 +84,10 @@ namespace ProjectStructs
             }
         }
 
-        byte secs
+        public byte secs
         {
-            get { return (byte)(numberSecs - hours * 60 * 60 - mins * 60); }
-            set
+            get { return (byte)(numberSecs - Hours * 60 * 60 - mins * 60); }
+            private set
             {
                 if (secs >= 0 && secs <= 59)
                     secs = value;
@@ -139,7 +139,7 @@ namespace ProjectStructs
         }
         public override string ToString()
         {
-            return hours + "h " + mins + "m " + secs + "s";
+            return Hours + "h " + mins + "m " + secs + "s";
         }
     }
 }

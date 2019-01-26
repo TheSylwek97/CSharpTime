@@ -19,10 +19,6 @@ namespace ProjectStructsTest
             Console.WriteLine(b);
             Console.WriteLine();
 
-            Time x = new Time();
-            long sum = x.MathTime('+', a, b);
-            Console.WriteLine(sum);
-
             Console.WriteLine();
             Time c = new Time(5, 24);
             Console.WriteLine(c);
@@ -31,7 +27,7 @@ namespace ProjectStructsTest
             Time d = new Time(4, 25, 30);
             Console.WriteLine(d);
             Console.WriteLine();
-
+            
             TimePeriod aP = new TimePeriod();
             Console.WriteLine(aP);
             Console.WriteLine();
@@ -39,14 +35,14 @@ namespace ProjectStructsTest
             TimePeriod bP = new TimePeriod(3, 5);
             Console.WriteLine(bP);
             Console.WriteLine();
-
+            /*
             TimePeriod cP = new TimePeriod(5, 3, 8, 6);
             Console.WriteLine(cP);
             Console.WriteLine();
 
             TimePeriod dP = new TimePeriod(5, 3, 8, 59, 9,3);
             Console.WriteLine(dP);
-            Console.WriteLine();
+            Console.WriteLine();*/
         }
     }
 }

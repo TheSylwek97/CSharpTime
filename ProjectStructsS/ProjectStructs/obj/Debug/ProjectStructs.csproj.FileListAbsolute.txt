@@ -5,3 +5,10 @@ C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructs\obj\Debug\ProjectSt
 C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructs\obj\Debug\ProjectStructs.csproj.CoreCompileInputs.cache
 C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructs\obj\Debug\ProjectStructs.exe
 C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructs\obj\Debug\ProjectStructs.pdb
+C:\Users\Izabela\Documents\CSharpTime\ProjectStructsS\ProjectStructs\obj\Debug\ProjectStructs.csprojAssemblyReference.cache
+C:\Users\Izabela\Documents\CSharpTime\ProjectStructsS\ProjectStructs\obj\Debug\ProjectStructs.csproj.CoreCompileInputs.cache
+C:\Users\Izabela\Documents\CSharpTime\ProjectStructsS\ProjectStructs\obj\Debug\ProjectStructs.exe
+C:\Users\Izabela\Documents\CSharpTime\ProjectStructsS\ProjectStructs\obj\Debug\ProjectStructs.pdb
+C:\Users\Izabela\Documents\CSharpTime\ProjectStructsS\ProjectStructs\bin\Debug\ProjectStructs.exe.config
+C:\Users\Izabela\Documents\CSharpTime\ProjectStructsS\ProjectStructs\bin\Debug\ProjectStructs.exe
+C:\Users\Izabela\Documents\CSharpTime\ProjectStructsS\ProjectStructs\bin\Debug\ProjectStructs.pdb

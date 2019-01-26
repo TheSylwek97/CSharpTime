@@ -138,14 +138,23 @@ namespace ProjectStructs
             return Hours + "h " + Minutes + "m " + Seconds + "s";
             //return $"{ Hours.ToString("hh") + Minutes.ToString("mm") + Seconds.ToString("ss")} ";
         }
-
+        
         static Time Plus(Time time, TimePeriod timeP)
         {
-            time.Hours += timeP.hours;
-            time.Minutes += TimePeriod.mins;
-            time.Seconds += TimePeriod.secs;
-            return time;
-        }
+            var seconds = time.Seconds % 60;
+            var additionalMinute = (byte)time.Seconds / 60;
 
+            var minutes = (time.Minutes + additionalMinute) % 60;
+            var additionalHours = (byte)(time.Minutes + additionalMinute) / 60;
+
+            var hours = (time.Hours + additionalHours) % 24;
+
+            Time result = new Time(System.Convert.ToByte(hours), 
+                                    System.Convert.ToByte(minutes), 
+                                    System.Convert.ToByte(seconds));
+
+            return result;
+        }
+        
     }
 }
