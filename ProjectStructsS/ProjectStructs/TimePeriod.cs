@@ -19,10 +19,10 @@ namespace ProjectStructs
         public int CompareTo(TimePeriod other)
         {
             if (this.Hours == other.Hours)
-                if (this.mins == other.mins)
-                    return this.secs.CompareTo(other.secs);
+                if (this.Mins == other.Mins)
+                    return this.Secs.CompareTo(other.Secs);
                 else
-                    return this.mins.CompareTo(other.mins);
+                    return this.Mins.CompareTo(other.Mins);
 
             return other.Hours.CompareTo(this.Hours);
         }
@@ -48,7 +48,7 @@ namespace ProjectStructs
 
             if (this.GetType() != t.GetType()) { return false; }
 
-            return (Hours == t.Hours) && (mins == t.mins) && (secs == t.secs);
+            return (Hours == t.Hours) && (Mins == t.Mins) && (Secs == t.Secs);
         }
 
         /// <summary>
@@ -72,25 +72,25 @@ namespace ProjectStructs
             }
         }
 
-        public byte mins
+        public byte Mins
         {
             get { return (byte)((numberSecs / 60) % 60); }
             private set
             {
-                if (mins >= 0 && mins <= 59)
-                    mins = value;
+                if (Mins >= 0 && Mins <= 59)
+                    Mins = value;
                 else
                     throw new ArgumentException("Niepoprawna liczba");
             }
         }
 
-        public byte secs
+        public byte Secs
         {
-            get { return (byte)(numberSecs - Hours * 60 * 60 - mins * 60); }
+            get { return (byte)(numberSecs - Hours * 60 * 60 - Mins * 60); }
             private set
             {
-                if (secs >= 0 && secs <= 59)
-                    secs = value;
+                if (Secs >= 0 && Secs <= 59)
+                    Secs = value;
                 else
                     throw new ArgumentException("Niepoprawna liczba");
             }
@@ -100,7 +100,7 @@ namespace ProjectStructs
         /// Obliczanie różnicy między gozinami
         /// </summary>
         /// <param name="hours"></param>
-        TimePeriod(byte hours) {
+        public TimePeriod(byte hours) {
             numberSecs = hours * 3600;
         }
 
@@ -109,7 +109,7 @@ namespace ProjectStructs
         /// </summary>
         /// <param name="hours"></param>
         /// <param name="minutes"></param>
-        TimePeriod(byte hours, byte minutes) {
+        public TimePeriod(byte hours, byte minutes) {
             numberSecs = hours * 3600 + minutes * 60;
         }
 
@@ -119,13 +119,13 @@ namespace ProjectStructs
         /// <param name="hours"></param>
         /// <param name="minutes"></param>
         /// <param name="seconds"></param>
-        TimePeriod(byte hours, byte minutes, byte seconds) {
+        public TimePeriod(byte hours, byte minutes, byte seconds) {
             numberSecs = hours * 3600 + minutes * 60 + seconds;
         }
 
         public override string ToString()
         {
-            return Hours + "h " + mins + "m " + secs + "s";
+            return Hours + "h " + Mins + "m " + Secs + "s";
         }
     }
 }
