@@ -95,48 +95,34 @@ namespace ProjectStructs
                     throw new ArgumentException("Niepoprawna liczba");
             }
         }
+
         /// <summary>
-        /// Obliczanie różnicy między sekundami
+        /// Obliczanie różnicy między gozinami
         /// </summary>
-        /// <param name="intervalH"></param>
         /// <param name="hours"></param>
-        public TimePeriod(long intervalS, byte sec)
-        {
-            if (sec > 59)
-                throw new ArgumentOutOfRangeException("Podany czas nie jest prawidłowy");
-            else
-                numberSecs = (long)sec - intervalS;
+        TimePeriod(byte hours) {
+            numberSecs = hours * 3600;
         }
+
         /// <summary>
-        /// Obliczanie różnicy między minutami oraz między sekundami
+        /// Obliczanie różnicy między gozinami oraz minutami
         /// </summary>
-        /// <param name="intervalH"></param>
         /// <param name="hours"></param>
-        /// <param name="intervalM"></param>
-        /// <param name="m"></param>
-        public TimePeriod(long intervalM, byte min, long intervalS, byte s)
-        {
-            if (min > 59 || s > 59)
-                throw new ArgumentOutOfRangeException("Podany czas nie jest prawidłowy");
-            else
-                numberSecs = (long)s - intervalS + (((long)min - intervalM)) ;
+        /// <param name="minutes"></param>
+        TimePeriod(byte hours, byte minutes) {
+            numberSecs = hours * 3600 + minutes * 60;
         }
+
         /// <summary>
         /// Obliczanie różnicy między godzinami, między minutami oraz sekundami
         /// </summary>
-        /// <param name="intervalH"></param>
         /// <param name="hours"></param>
-        /// <param name="intervalM"></param>
-        /// <param name="m"></param>
-        /// <param name="intervalS"></param>
-        /// <param name="s"></param>
-        public TimePeriod(long intervalH, byte hours, long intervalM, byte m, long intervalS, byte s)
-        {
-            if (hours > 23 || m > 59 || s > 59)
-                throw new ArgumentOutOfRangeException("Podany czas nie jest prawidłowy");
-            else
-                numberSecs = (3600 * ((long)hours - intervalH)) +( 60 * ((long)m - intervalM))  + (long)s - intervalS;
+        /// <param name="minutes"></param>
+        /// <param name="seconds"></param>
+        TimePeriod(byte hours, byte minutes, byte seconds) {
+            numberSecs = hours * 3600 + minutes * 60 + seconds;
         }
+
         public override string ToString()
         {
             return Hours + "h " + mins + "m " + secs + "s";

@@ -32,9 +32,20 @@ namespace ProjectStructsTest
             Console.WriteLine(aP);
             Console.WriteLine();
 
-            TimePeriod bP = new TimePeriod(3, 5);
+            TimePeriod bP = new TimePeriod(3);
             Console.WriteLine(bP);
             Console.WriteLine();
+
+            TimePeriod cP = new TimePeriod(2,21);
+            Console.WriteLine(cP);
+            Console.WriteLine();
+
+            TimePeriod dP = new TimePeriod(22,36,59);
+            Console.WriteLine(dP);
+            Console.WriteLine();
+
+            Time sum = new Time(System.Convert.ToByte(c), System.Convert.ToByte(dP));
+            Console.WriteLine(sum);
             /*
             TimePeriod cP = new TimePeriod(5, 3, 8, 6);
             Console.WriteLine(cP);
