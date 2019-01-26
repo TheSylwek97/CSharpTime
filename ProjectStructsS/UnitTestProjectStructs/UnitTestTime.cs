@@ -8,7 +8,7 @@ namespace UnitTestProjectStructsTime
     public class UnitTest0Time
     {
         [TestMethod]
-        public void KonstruktorDomyslny_NieUstalonyCzas() { }
+        public void ConstrDefault() { }
     }
 
     [TestClass]
@@ -19,12 +19,12 @@ namespace UnitTestProjectStructsTime
         [DataRow(4)]
 
         [TestMethod]
-        public void KonstruktorJednoargumentowy_Godzina(Int32 a)
+        public void Constr1(Int32 a)
         {
-            byte daneTestowe = (byte)a;
-            Time t = new Time(daneTestowe);
-            Assert.IsTrue(daneTestowe < 24);
-            //Assert.AreEqual(daneTestowe, Time);
+            byte hour = (byte)a;
+            Time t = new Time(hour);
+            Assert.IsTrue(hour < 24);
+            //Assert.AreEqual(daneTestowe, t);
         }
     }
     
@@ -33,12 +33,12 @@ namespace UnitTestProjectStructsTime
     {
         [DataTestMethod]
         [DataRow(2, 5)]
-        public void KonstruktorDwuargumentowy_GodzinaIMinuta(Int32 a, Int32 b)
+        public void Constr2(Int32 a, Int32 b)
         {
-            byte godz = (byte)a;
+            byte h = (byte)a;
             byte min = (byte)b;
-            Time t = new Time(godz, min);
-            Assert.IsTrue(godz < 24);
+            Time t = new Time(h, min);
+            Assert.IsTrue(h < 24);
             Assert.IsTrue(min <= 59);
         }
     }
@@ -48,7 +48,7 @@ namespace UnitTestProjectStructsTime
     {
         [DataTestMethod]
         [DataRow(2, 48, 53)]
-        public void KonstruktorTrojargumentowy_GodzinaIMinutaISekunda(Int32 a, Int32 b, Int32 c)
+        public void Constr3(Int32 a, Int32 b, Int32 c)
         {
             byte godz = (byte)a;
             byte min = (byte)b;
@@ -60,6 +60,41 @@ namespace UnitTestProjectStructsTime
         }
     }
 
+    [TestClass]
+    public class UnitTest6Time
+    {
+        [DataTestMethod]
+        [DataRow(11, 57, 59, 27, 15, 03, 15, 13, 02)]
+        public void TimePlus(Int32 timeHours, Int32 timeMinutes, Int32 timeSeconds,
+                              Int32 timeHoursP, Int32 timeMinutesP, Int32 timeSecondsP,
+                              Int32 resultHours, Int32 resultMinutes, Int32 resultSeconds)
+        {
+            Time time =                     new Time(Convert.ToByte(timeHours),  Convert.ToByte(timeMinutes), Convert.ToByte(timeSeconds));
+            TimePeriod timePeriod =   new TimePeriod(Convert.ToByte(timeHoursP), Convert.ToByte(timeMinutesP), Convert.ToByte(timeSecondsP));
+                
+            Time sum = Time.Plus(time, timePeriod);
+            Assert.AreEqual(sum, new Time(Convert.ToByte(resultHours), Convert.ToByte(resultMinutes), Convert.ToByte(resultSeconds)));
+
+        }
+    }
+
+    [TestClass]
+    public class UnitTest7Time
+    {
+        [DataTestMethod]
+        [DataRow(11, 57, 59, 27, 15, 03, 08, 42, 56)]
+        public void TimeMinus(Int32 timeHours, Int32 timeMinutes, Int32 timeSeconds,
+                       Int32 timeHoursP, Int32 timeMinutesP, Int32 timeSecondsP,
+                       Int32 resultHours, Int32 resultMinutes, Int32 resultSeconds)
+        {
+            Time time = new Time(Convert.ToByte(timeHours), Convert.ToByte(timeMinutes), Convert.ToByte(timeSeconds));
+            TimePeriod timePeriod = new TimePeriod(Convert.ToByte(timeHoursP), Convert.ToByte(timeMinutesP), Convert.ToByte(timeSecondsP));
+
+            Time substraction = Time.Minus(time, timePeriod);
+            Assert.AreEqual(substraction, new Time(Convert.ToByte(resultHours), Convert.ToByte(resultMinutes), Convert.ToByte(resultSeconds)));
+
+        }
+    }
     [TestClass]
     public class UnitTest4Time
     {
@@ -105,17 +140,13 @@ namespace UnitTestProjectStructsTimePeriod
     public class UnitTest1TimePeriod
     {
         [DataTestMethod]
-        [DataRow(0, 12)]
-        [DataRow(4, 22)]
-
-        [TestMethod]
-        public void KonstruktorJednoargumentowy_Sek(Int32 Is, Int32 s)
+        [DataRow(8)]
+        [DataRow(12)]
+        public void Konstruktor1arg(Int32 a)
         {
-            byte sek = (byte)s;
-            long interSek = (long)Is;
-            TimePeriod t = new TimePeriod(interSek, sek);
-            Assert.IsTrue(sek <= 59);
-            Assert.AreNotSame(interSek, sek);
+            byte godz = (byte)a;
+            Time t = new Time(godz );
+            Assert.IsTrue(godz < 24);
         }
     }
 
@@ -123,16 +154,14 @@ namespace UnitTestProjectStructsTimePeriod
     public class UnitTest2TimePeriod
     {
         [DataTestMethod]
-        [DataRow(2, 5, 4, 3)]
-        public void KonstruktorCzworoarg_SekundaIMinuta( Int32 b, Int32 c,  Int32 Ib, Int32 Ic)
+        [DataRow(5, 13)]
+        public void Konstruktor2arg(Int32 a, Int32 b)
         {
+            byte godz = (byte)a;
             byte min = (byte)b;
-            byte sek = (byte)c;
-            long interMin = (long)Ib;
-            long interSek = (long)Ic;
-            TimePeriod t = new TimePeriod(interMin, min, interSek, sek);
+            Time t = new Time(godz, min);
+            Assert.IsTrue(godz < 24);
             Assert.IsTrue(min <= 59);
-            Assert.AreNotSame(interMin, min);
         }
     }
     
@@ -140,16 +169,13 @@ namespace UnitTestProjectStructsTimePeriod
     public class UnitTest3TimePeriod
     {
         [DataTestMethod]
-        [DataRow(2, 48, 53,24,56,11)]
-        public void KonstruktorSzescioarg_GodzinaIMinutaISekunda(Int32 a, Int32 b, Int32 c, Int32 Ia, Int32 Ib, Int32 Ic)
+        [DataRow(2, 48, 53)]
+        public void Konstruktor3arg(Int32 a, Int32 b, Int32 c)
         {
             byte godz = (byte)a;
             byte min = (byte)b;
             byte sek = (byte)c;
-            long interGodz = (long)Ia;
-            long interMin = (long)Ib;
-            long interSek = (long)Ic;
-            TimePeriod t = new TimePeriod( interGodz, godz,  interMin, min, interSek, sek);
+            Time t = new Time(godz, min, sek);
             Assert.IsTrue(godz < 24);
             Assert.IsTrue(min <= 59);
             Assert.IsTrue(sek <= 59);

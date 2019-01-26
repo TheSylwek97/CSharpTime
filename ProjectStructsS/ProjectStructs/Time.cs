@@ -149,27 +149,31 @@ namespace ProjectStructs
 
             var hours = (time.Hours + additionalHours+ timeP.Hours) % 24;
 
-            Time result = new Time(System.Convert.ToByte(hours), 
-                                    System.Convert.ToByte(minutes), 
-                                    System.Convert.ToByte(seconds));
+            Time result = new Time(Convert.ToByte(hours), 
+                                    Convert.ToByte(minutes), 
+                                    Convert.ToByte(seconds));
 
             return result;
         }
 
 
-        public static Time Minus(Time time, TimePeriod timeP)
-        {
-            var seconds = (time.Seconds - timeP.Secs) % 60;
-            var additionalMinute = ((byte)time.Seconds - timeP.Secs) / 60;
+        public static Time Minus(Time time, TimePeriod timePeriod) {
 
-            var minutes = (time.Minutes + additionalMinute + timeP.Mins) % 60;
-            var additionalHours = (byte)(time.Minutes - additionalMinute - timeP.Mins) / 60;
+            var timeInSec = time.Hours * 3600 + time.Minutes * 60 + time.Seconds;
+            var timePeriodInSec = timePeriod.Hours * 3600 + timePeriod.Mins * 60 + timePeriod.Secs;
 
-            var hours = (time.Hours - additionalHours - timeP.Hours) % 24;
+            if (timeInSec < timePeriodInSec)
+                timeInSec += 24 * 3600;
 
-            Time result = new Time(System.Convert.ToByte(hours),
-                                    System.Convert.ToByte(minutes),
-                                    System.Convert.ToByte(seconds));
+            var resultInSec = timeInSec - timePeriodInSec;
+
+            var hours = resultInSec / 3600;
+            var minutes = (resultInSec - (hours * 3600)) / 60;
+            var seconds = (resultInSec - (hours * 3600) - (minutes * 60));
+
+            Time result = new Time(Convert.ToByte(hours),
+                                    Convert.ToByte(minutes),
+                                    Convert.ToByte(seconds));
 
             return result;
         }

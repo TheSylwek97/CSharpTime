@@ -13,20 +13,19 @@ namespace ProjectStructsTest
         {
             
             Console.WriteLine();
-            Time c = new Time(23, 57, 59);
+            Time c = new Time(11, 57, 59);
             Console.WriteLine(c);
             Console.WriteLine();
 
             TimePeriod dP = new TimePeriod(27,15,03);
             Console.WriteLine(dP);
             Console.WriteLine();
-
             /*
             var sampleTime = new Time(12);
             var sampleTimePeriod = new TimePeriod(0, 15, 0);
             */
-            var sum = Time.Minus(c, dP);
-            Console.WriteLine(sum.ToString());
+            var sub = Time.Minus(c, dP);
+            Console.WriteLine(sub.ToString());
 
         }
 
