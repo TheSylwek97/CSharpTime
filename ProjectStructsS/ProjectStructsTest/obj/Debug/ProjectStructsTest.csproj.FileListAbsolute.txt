@@ -1,0 +1,11 @@
+C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructsTest\bin\Debug\ProjectStructsTest.exe.config
+C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructsTest\bin\Debug\ProjectStructsTest.exe
+C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructsTest\bin\Debug\ProjectStructsTest.pdb
+C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructsTest\bin\Debug\ProjectStructs.exe
+C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructsTest\bin\Debug\ProjectStructs.pdb
+C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructsTest\bin\Debug\ProjectStructs.exe.config
+C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructsTest\obj\Debug\ProjectStructsTest.csprojAssemblyReference.cache
+C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructsTest\obj\Debug\ProjectStructsTest.csproj.CoreCompileInputs.cache
+C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructsTest\obj\Debug\ProjectStructsTest.csproj.CopyComplete
+C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructsTest\obj\Debug\ProjectStructsTest.exe
+C:\Users\Izabela\source\repos\ProjectStructsS\ProjectStructsTest\obj\Debug\ProjectStructsTest.pdb

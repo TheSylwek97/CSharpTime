@@ -1,0 +1,17 @@
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\obj\Debug\UnitTestProjectStructs.csprojAssemblyReference.cache
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\obj\Debug\UnitTestProjectStructs.csproj.CoreCompileInputs.cache
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\bin\Debug\UnitTestProjectStructs.dll
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\bin\Debug\UnitTestProjectStructs.pdb
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\bin\Debug\ProjectStructs.exe
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\bin\Debug\ProjectStructs.pdb
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\bin\Debug\ProjectStructs.exe.config
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\obj\Debug\UnitTestProjectStructs.csproj.CopyComplete
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\obj\Debug\UnitTestProjectStructs.dll
+C:\Users\Izabela\source\repos\ProjectStructsS\UnitTestProjectStructs\obj\Debug\UnitTestProjectStructs.pdb
