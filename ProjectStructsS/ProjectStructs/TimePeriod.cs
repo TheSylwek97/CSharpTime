@@ -18,13 +18,13 @@ namespace ProjectStructs
         /// </summary>
         public int CompareTo(TimePeriod other)
         {
-            if (this.hs == other.hs)
+            if (this.hours == other.hours)
                 if (this.mins == other.mins)
                     return this.secs.CompareTo(other.secs);
                 else
                     return this.mins.CompareTo(other.mins);
 
-            return other.hs.CompareTo(this.hs);
+            return other.hours.CompareTo(this.hours);
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace ProjectStructs
 
             if (this.GetType() != t.GetType()) { return false; }
 
-            return (hs == t.hs) && (mins == t.mins) && (secs == t.secs);
+            return (hours == t.hours) && (mins == t.mins) && (secs == t.secs);
         }
 
         /// <summary>
@@ -56,19 +56,19 @@ namespace ProjectStructs
         /// </summary>
         public override int GetHashCode()
         {
-            return hs * 0x00010000 + hs;
+            return hours * 0x00010000 + hours;
         }
         private readonly long numberSecs;
 
-        byte hs
+        byte hours
         {
             get { return (byte)(numberSecs / 3600); }
             set
             {
-                if (hs >= 0 && hs <= 23)
-                    hs = value;
+                if (hours >= 0 && hours <= 23)
+                    hours = value;
                 else
-                    throw new ArgumentException("Nie poprawna liczba");
+                    throw new ArgumentException("Niepoprawna liczba");
             }
         }
 
@@ -80,19 +80,19 @@ namespace ProjectStructs
                 if (mins >= 0 && mins <= 59)
                     mins = value;
                 else
-                    throw new ArgumentException("Nie poprawna liczba");
+                    throw new ArgumentException("Niepoprawna liczba");
             }
         }
 
         byte secs
         {
-            get { return (byte)(numberSecs - hs * 60 * 60 - mins * 60); }
+            get { return (byte)(numberSecs - hours * 60 * 60 - mins * 60); }
             set
             {
                 if (secs >= 0 && secs <= 59)
                     secs = value;
                 else
-                    throw new ArgumentException("Nie poprawna liczba");
+                    throw new ArgumentException("Niepoprawna liczba");
             }
         }
         /// <summary>
@@ -103,7 +103,7 @@ namespace ProjectStructs
         public TimePeriod(long intervalS, byte sec)
         {
             if (sec > 59)
-                throw new ArgumentOutOfRangeException("podany czas nie jest prawidłowy");
+                throw new ArgumentOutOfRangeException("Podany czas nie jest prawidłowy");
             else
                 numberSecs = (long)sec - intervalS;
         }
@@ -117,7 +117,7 @@ namespace ProjectStructs
         public TimePeriod(long intervalM, byte min, long intervalS, byte s)
         {
             if (min > 59 || s > 59)
-                throw new ArgumentOutOfRangeException("podany czas nie jest prawidłowy");
+                throw new ArgumentOutOfRangeException("Podany czas nie jest prawidłowy");
             else
                 numberSecs = (long)s - intervalS + (((long)min - intervalM)) ;
         }
@@ -133,13 +133,13 @@ namespace ProjectStructs
         public TimePeriod(long intervalH, byte hours, long intervalM, byte m, long intervalS, byte s)
         {
             if (hours > 23 || m > 59 || s > 59)
-                throw new ArgumentOutOfRangeException("podany czas nie jest prawidłowy");
+                throw new ArgumentOutOfRangeException("Podany czas nie jest prawidłowy");
             else
                 numberSecs = (3600 * ((long)hours - intervalH)) +( 60 * ((long)m - intervalM))  + (long)s - intervalS;
         }
         public override string ToString()
         {
-            return hs + "h " + mins + "m " + secs + "s";
+            return hours + "h " + mins + "m " + secs + "s";
         }
     }
 }

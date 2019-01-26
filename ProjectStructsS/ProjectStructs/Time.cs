@@ -70,7 +70,7 @@ namespace ProjectStructs
                 if (Hours >= 0 && Hours <= 23)
                     Hours = value;
                 else
-                    throw new ArgumentException("Nie poprawna liczba");
+                    throw new ArgumentException("Niepoprawna liczba");
             }
         }
 
@@ -82,7 +82,7 @@ namespace ProjectStructs
                 if (Minutes >= 0 && Minutes <= 59)
                     Minutes = value;
                 else
-                    throw new ArgumentException("Nie poprawna liczba");
+                    throw new ArgumentException("Niepoprawna liczba");
             }
         }
 
@@ -94,7 +94,7 @@ namespace ProjectStructs
                 if (Seconds >= 0 && Seconds <= 59)
                     Seconds = value;
                 else
-                    throw new ArgumentException("Nie poprawna liczba");
+                    throw new ArgumentException("Niepoprawna liczba");
             }
         }
         /// <summary>
@@ -103,7 +103,7 @@ namespace ProjectStructs
         public Time(byte hours, byte minutes, byte seconds)
         {
             if (hours > 23 || minutes > 59 || seconds > 59)
-                throw new ArgumentOutOfRangeException("podany czas nie jest prawidłowy");
+                throw new ArgumentOutOfRangeException("Podany czas nie jest prawidłowy");
             else
                 numberOfSecs = seconds + 60 * minutes + 3600 * hours;
         }
@@ -114,7 +114,7 @@ namespace ProjectStructs
         public Time(byte hours, byte minutes)
         {
             if (hours > 23 || minutes > 59)
-                throw new ArgumentOutOfRangeException("podany czas nie jest prawidłowy");
+                throw new ArgumentOutOfRangeException("Podany czas nie jest prawidłowy");
             else
                 numberOfSecs = 60 * minutes + 3600 * hours;
         }
@@ -125,7 +125,7 @@ namespace ProjectStructs
         public Time(byte hours)
         {
             if (hours > 23)
-                throw new ArgumentOutOfRangeException("podany czas nie jest prawidłowy");
+                throw new ArgumentOutOfRangeException("Podany czas nie jest prawidłowy");
             else
                 numberOfSecs = 3600 * hours;
         }
@@ -139,21 +139,12 @@ namespace ProjectStructs
             //return $"{ Hours.ToString("hh") + Minutes.ToString("mm") + Seconds.ToString("ss")} ";
         }
 
-        public long MathTime( char operatorToChose, Time h, Time g)
+        static Time Plus(Time time, TimePeriod timeP)
         {
-            long result = 0;
-            long l1 = (long)Convert.ToDouble(h);
-            long l2 = (long)Convert.ToDouble(g);
-
-            switch (operatorToChose)
-            {
-                case '+':  result = l1 + l2;
-                    break;
-
-                case '-':  result = l1- l2;
-                    break;
-            }
-            return result;
+            time.Hours += timeP.hours;
+            time.Minutes += TimePeriod.mins;
+            time.Seconds += TimePeriod.secs;
+            return time;
         }
 
     }
