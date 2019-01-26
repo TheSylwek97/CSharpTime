@@ -157,5 +157,22 @@ namespace ProjectStructs
         }
 
 
+        public static Time Minus(Time time, TimePeriod timeP)
+        {
+            var seconds = (time.Seconds - timeP.Secs) % 60;
+            var additionalMinute = ((byte)time.Seconds - timeP.Secs) / 60;
+
+            var minutes = (time.Minutes + additionalMinute + timeP.Mins) % 60;
+            var additionalHours = (byte)(time.Minutes - additionalMinute - timeP.Mins) / 60;
+
+            var hours = (time.Hours - additionalHours - timeP.Hours) % 24;
+
+            Time result = new Time(System.Convert.ToByte(hours),
+                                    System.Convert.ToByte(minutes),
+                                    System.Convert.ToByte(seconds));
+
+            return result;
+        }
+
     }
 }
