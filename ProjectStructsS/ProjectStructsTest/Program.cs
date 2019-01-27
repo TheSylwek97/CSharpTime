@@ -17,15 +17,25 @@ namespace ProjectStructsTest
             Console.WriteLine(c);
             Console.WriteLine();
 
-            TimePeriod b = new TimePeriod(100,0,0);
+            TimePeriod b = new TimePeriod(5, 0, 0);
             Console.WriteLine(b);
             Console.WriteLine();
-            /*
-            var sampleTime = new Time(12);
-            var sampleTimePeriod = new TimePeriod(0, 15, 0);
-            */
-            var sub = TimePeriod.Plus(c, b);
+
+            var multiP = TimePeriod.Multiplication(b, 8);
+            Console.WriteLine(multiP.ToString());
+
+            var subP = TimePeriod.Minus(c, b);
+            Console.WriteLine(subP.ToString());
+
+            var sumP = TimePeriod.Plus(c, b);
+            Console.WriteLine(sumP.ToString());
+            Console.WriteLine();
+
+            var sub = Time.Minus(c, b);
             Console.WriteLine(sub.ToString());
+
+            var sum = Time.Plus(c, b);
+            Console.WriteLine(sum.ToString());
 
         }
 

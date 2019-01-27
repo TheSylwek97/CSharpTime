@@ -150,9 +150,30 @@ namespace ProjectStructs
             var timeInSec = time.Hours * 3600 + time.Minutes * 60 + time.Seconds;
             var timePeriodInSec = timePeriod.Hours * 3600 + timePeriod.Mins * 60 + timePeriod.Secs;
 
-            timePeriodInSec %= (24 * 3600);
+            while (timeInSec < timePeriodInSec)
+            {
+                timeInSec += 24 * 3600;
+            }
 
             var resultInSec = timeInSec - timePeriodInSec;
+
+            var hours = resultInSec / 3600;
+            var minutes = (resultInSec - (hours * 3600)) / 60;
+            var seconds = (resultInSec - (hours * 3600) - (minutes * 60));
+
+            TimePeriod result = new TimePeriod(Convert.ToByte(hours),
+                                               Convert.ToByte(minutes),
+                                               Convert.ToByte(seconds));
+
+            return result;
+        }
+        public static TimePeriod Multiplication(TimePeriod timePeriod, long number)
+        {
+            var timePeriodInSec = timePeriod.Hours * 3600 + timePeriod.Mins * 60 + timePeriod.Secs;
+
+            //timePeriodInSec %= (24 * 3600);
+
+            var resultInSec = number * timePeriodInSec;
 
             var hours = resultInSec / 3600;
             var minutes = (resultInSec - (hours * 3600)) / 60;
