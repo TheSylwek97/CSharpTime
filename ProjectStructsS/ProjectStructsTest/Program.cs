@@ -17,14 +17,14 @@ namespace ProjectStructsTest
             Console.WriteLine(c);
             Console.WriteLine();
 
-            TimePeriod dP = new TimePeriod(100,0,0);
-            Console.WriteLine(dP);
+            TimePeriod b = new TimePeriod(100,0,0);
+            Console.WriteLine(b);
             Console.WriteLine();
             /*
             var sampleTime = new Time(12);
             var sampleTimePeriod = new TimePeriod(0, 15, 0);
             */
-            var sub = Time.Minus(c, dP);
+            var sub = TimePeriod.Plus(c, b);
             Console.WriteLine(sub.ToString());
 
         }

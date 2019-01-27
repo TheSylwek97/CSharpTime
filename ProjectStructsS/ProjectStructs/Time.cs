@@ -62,10 +62,10 @@ namespace ProjectStructs
 
         private readonly int numberOfSecs;
 
-        byte Hours
+        public byte Hours
         {
             get { return (byte)(numberOfSecs / 3600);}
-            set
+            private set
             {
                 if (Hours >= 0 && Hours <= 23)
                     Hours = value;
@@ -74,10 +74,10 @@ namespace ProjectStructs
             }
         }
 
-        byte Minutes
+        public byte Minutes
         {
             get{ return (byte)((numberOfSecs / 60) % 60);}
-            set
+            private set
             {
                 if (Minutes >= 0 && Minutes <= 59)
                     Minutes = value;
@@ -86,10 +86,10 @@ namespace ProjectStructs
             }
         }
 
-        byte Seconds
+        public byte Seconds
         {
             get{ return (byte)(numberOfSecs - Hours * 60 * 60 - Minutes * 60);}
-            set
+            private set
             {
                 if (Seconds >= 0 && Seconds <= 59)
                     Seconds = value;

@@ -234,5 +234,21 @@ namespace UnitTestProjectStructsTimePeriod
                     Assert.AreEqual(min, b);
             Assert.AreEqual(a, h);
         }
-    }
+    }/*
+    [TestClass]
+    public class UnitTest6TimePeriod
+    {
+        [DataTestMethod]
+        [DataRow(1, 0, 0, 10, 0, 0, 11, 0, 0)]
+        public void TimePlusP(Int32 timeHours, Int32 timeMinutes, Int32 timeSeconds,
+                             Int32 timeHoursP, Int32 timeMinutesP, Int32 timeSecondsP,
+                             Int32 resultHours, Int32 resultMinutes, Int32 resultSeconds)
+        {
+            Time time =                   new Time(Convert.ToByte(timeHours), Convert.ToByte(timeMinutes), Convert.ToByte(timeSeconds));
+            TimePeriod timePeriod = new TimePeriod(Convert.ToByte(timeHoursP), Convert.ToByte(timeMinutesP), Convert.ToByte(timeSecondsP));
+
+            TimePeriod sum = TimePeriod.Plus(time, timePeriod);
+            Assert.AreEqual(sum, new Time(Convert.ToByte(resultHours), Convert.ToByte(resultMinutes), Convert.ToByte(resultSeconds)));
+        }
+    }*/
 }

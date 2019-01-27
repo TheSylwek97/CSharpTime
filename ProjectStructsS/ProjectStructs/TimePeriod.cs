@@ -127,5 +127,42 @@ namespace ProjectStructs
         {
             return Hours + "h " + Mins + "m " + Secs + "s";
         }
+
+        public static TimePeriod Plus(Time time, TimePeriod timeP)
+        {
+            var seconds = time.Seconds + timeP.Secs;
+
+            var minutes = time.Minutes +  timeP.Mins;
+
+            var hours = time.Hours +  timeP.Hours;
+
+            TimePeriod result = new TimePeriod(Convert.ToByte(hours),
+                                                Convert.ToByte(minutes),
+                                                Convert.ToByte(seconds));
+
+            return result;
+        }
+
+
+        public static TimePeriod Minus(Time time, TimePeriod timePeriod)
+        {
+
+            var timeInSec = time.Hours * 3600 + time.Minutes * 60 + time.Seconds;
+            var timePeriodInSec = timePeriod.Hours * 3600 + timePeriod.Mins * 60 + timePeriod.Secs;
+
+            timePeriodInSec %= (24 * 3600);
+
+            var resultInSec = timeInSec - timePeriodInSec;
+
+            var hours = resultInSec / 3600;
+            var minutes = (resultInSec - (hours * 3600)) / 60;
+            var seconds = (resultInSec - (hours * 3600) - (minutes * 60));
+
+            TimePeriod result = new TimePeriod(Convert.ToByte(hours),
+                                               Convert.ToByte(minutes),
+                                               Convert.ToByte(seconds));
+
+            return result;
+        }
     }
 }
