@@ -100,38 +100,48 @@ namespace UnitTestProjectStructsTime
     [TestClass]
     public class UnitTest4Time
     {
-        [TestMethod]
-        public bool IEquatable_Test()
+        [DataTestMethod]
+        [DataRow(02, 50, 30)]
+        public void IEquatable_Test(Int32 a, Int32 b, Int32 c)
         {
-            Time t = new Time();
+            byte h = (byte)a;
+            byte min = (byte)b;
+            byte sec = (byte)c;
+            Time t = new Time(h, min, sec);
 
-            if (Object.ReferenceEquals(this, t))
-                return true;
-            /*else if (object.ReferenceEquals(i, null) && this.GetType() != i.GetType())
-                return false;*/
+            if(Object.ReferenceEquals(this, t))
+                Assert.IsTrue(Object.ReferenceEquals(this, t));
+            else if (!(object.ReferenceEquals(t, null)))
+                Assert.IsFalse(object.ReferenceEquals(t, null));
             else
-                return false;
+                Assert.IsFalse(this.GetType() != t.GetType());
+
+
         }
     }
-
+    
     [TestClass]
     public class UnitTest5Time
     {
-        [TestMethod]
-        public int IComparable_Test(Int32 a, Int32 b, Int32 c)
+        [DataTestMethod]
+        [DataRow(11, 57, 59)]
+        public void IComparable_Test(Int32 a, Int32 b, Int32 c)
         {
-            byte godz = (byte)a;
+            byte h = (byte)a;
             byte min = (byte)b;
-            byte sek = (byte)c;
-            Time t = new Time(godz, min, sek);
+            byte sec = (byte)c;
+            Time t = new Time(h, min, sec);
 
-            if (godz == a)
+            if (h == a)
                 if (min == b)
-                    return sek.CompareTo(c);
+                    Assert.AreEqual(sec, c);
+                    //return sec.CompareTo(c);
                 else
-                    return min.CompareTo(b);
+                    Assert.AreEqual(min, b);
+                    //return min.CompareTo(b);
 
-            return a.CompareTo(godz);
+            Assert.AreEqual(a, h);
+            //return a.CompareTo(h);
         }
     }
 }
@@ -144,11 +154,11 @@ namespace UnitTestProjectStructsTimePeriod
         [DataTestMethod]
         [DataRow(8)]
         [DataRow(12)]
-        public void Konstruktor1arg(Int32 a)
+        public void Const1arg(Int32 a)
         {
-            byte godz = (byte)a;
-            Time t = new Time(godz );
-            Assert.IsTrue(godz < 24);
+            byte h = (byte)a;
+            Time t = new Time(h );
+            Assert.IsTrue(h < 24);
         }
     }
 
@@ -157,12 +167,12 @@ namespace UnitTestProjectStructsTimePeriod
     {
         [DataTestMethod]
         [DataRow(5, 13)]
-        public void Konstruktor2arg(Int32 a, Int32 b)
+        public void Constr2arg(Int32 a, Int32 b)
         {
-            byte godz = (byte)a;
+            byte h = (byte)a;
             byte min = (byte)b;
-            Time t = new Time(godz, min);
-            Assert.IsTrue(godz < 24);
+            Time t = new Time(h, min);
+            Assert.IsTrue(h < 24);
             Assert.IsTrue(min <= 59);
         }
     }
@@ -172,51 +182,57 @@ namespace UnitTestProjectStructsTimePeriod
     {
         [DataTestMethod]
         [DataRow(2, 48, 53)]
-        public void Konstruktor3arg(Int32 a, Int32 b, Int32 c)
+        public void Constr3(Int32 a, Int32 b, Int32 c)
         {
-            byte godz = (byte)a;
+            byte h = (byte)a;
             byte min = (byte)b;
-            byte sek = (byte)c;
-            Time t = new Time(godz, min, sek);
-            Assert.IsTrue(godz < 24);
+            byte sec = (byte)c;
+            Time t = new Time(h, min, sec);
+            Assert.IsTrue(h < 24);
             Assert.IsTrue(min <= 59);
-            Assert.IsTrue(sek <= 59);
+            Assert.IsTrue(sec <= 59);
         }
     }
 
     [TestClass]
     public class UnitTest4TimePeriod
     {
-        [TestMethod]
-        public bool IEquatable_TimePeriod_Test()
+        [DataTestMethod]
+        [DataRow(02, 50, 30)]
+        public void IEquatable_Test(Int32 a, Int32 b, Int32 c)
         {
-            Time t = new Time();
+            byte h = (byte)a;
+            byte min = (byte)b;
+            byte sec = (byte)c;
+            Time t = new Time(h, min, sec);
 
             if (Object.ReferenceEquals(this, t))
-                return true;
+                Assert.IsTrue(Object.ReferenceEquals(this, t));
+            else if (!(object.ReferenceEquals(t, null)))
+                Assert.IsFalse(object.ReferenceEquals(t, null));
             else
-                return false;
+                Assert.IsFalse(this.GetType() != t.GetType());
         }
     }
 
     [TestClass]
     public class UnitTest5TimePeriod
     {
-        [TestMethod]
-        public int IComparable_TimePeriod_Test(Int32 a, Int32 b, Int32 c)
+        [DataTestMethod]
+        [DataRow(11, 57, 59)]
+        public void IComparable_Test(Int32 a, Int32 b, Int32 c)
         {
-            byte godz = (byte)a;
+            byte h = (byte)a;
             byte min = (byte)b;
-            byte sek = (byte)c;
-            Time t = new Time(godz, min, sek);
+            byte sec = (byte)c;
+            Time t = new Time(h, min, sec);
 
-            if (godz == a)
+            if (h == a)
                 if (min == b)
-                    return sek.CompareTo(c);
+                    Assert.AreEqual(sec, c);
                 else
-                    return min.CompareTo(b);
-
-            return a.CompareTo(godz);
+                    Assert.AreEqual(min, b);
+            Assert.AreEqual(a, h);
         }
     }
 }
