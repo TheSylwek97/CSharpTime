@@ -83,6 +83,8 @@ namespace UnitTestProjectStructsTime
     {
         [DataTestMethod]
         [DataRow(11, 57, 59, 27, 15, 03, 08, 42, 56)]
+        [DataRow(1, 0, 0, 100, 0, 0, 21, 0, 0)]
+        [DataRow(1, 0, 0, 26, 0, 0, 23, 0, 0)]
         public void TimeMinus(Int32 timeHours, Int32 timeMinutes, Int32 timeSeconds,
                        Int32 timeHoursP, Int32 timeMinutesP, Int32 timeSecondsP,
                        Int32 resultHours, Int32 resultMinutes, Int32 resultSeconds)

@@ -13,11 +13,11 @@ namespace ProjectStructsTest
         {
             
             Console.WriteLine();
-            Time c = new Time(11, 57, 59);
+            Time c = new Time(1,0, 0);
             Console.WriteLine(c);
             Console.WriteLine();
 
-            TimePeriod dP = new TimePeriod(27,15,03);
+            TimePeriod dP = new TimePeriod(100,0,0);
             Console.WriteLine(dP);
             Console.WriteLine();
             /*

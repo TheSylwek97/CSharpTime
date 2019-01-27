@@ -162,8 +162,11 @@ namespace ProjectStructs
             var timeInSec = time.Hours * 3600 + time.Minutes * 60 + time.Seconds;
             var timePeriodInSec = timePeriod.Hours * 3600 + timePeriod.Mins * 60 + timePeriod.Secs;
 
-            if (timeInSec < timePeriodInSec)
+            while (timeInSec < timePeriodInSec)
+            {
                 timeInSec += 24 * 3600;
+            }
+                
 
             var resultInSec = timeInSec - timePeriodInSec;
 
